@@ -1,0 +1,25 @@
+# Secrets
+.env
+.env.*
+!.env.example
+
+# Python
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+
+# Generated datasets
+data/
+**/data/generated/
+*.csv
+*.csv.gz
+*.parquet
+*.xlsx
+
+# OS / editors
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
