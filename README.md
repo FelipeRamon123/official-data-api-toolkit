@@ -15,6 +15,7 @@ Run the U.S. Census Python quickstart directly in Google Colab—no cloning or G
 | Source | What you can query | Status |
 |---|---|---|
 | [U.S. Census International Trade API](sources/us-census/README.md) | U.S. imports and exports by product, partner country, port, classification and customs treatment | Available |
+| [Yale Tariff Rate Tracker](sources/yale-tariff-rate-tracker/README.md) | U.S. statutory tariff rates by HTSUS10, origin country, authority and validity interval | Available |
 
 ## Featured showcase
 
@@ -46,6 +47,10 @@ Go to the [U.S. Census module](sources/us-census/README.md) for setup instructio
 The **U.S. Census Imports API Showcase** is a separate GitHub Pages application built from example 02. The toolkit remains the source of reusable extraction code; the showcase demonstrates one concrete application and links back to the code, documentation and downloadable dataset.
 
 Repository: `united-states-census-imports-api-showcase`
+
+### Brazil × U.S. tariffs
+
+The [Brazil × U.S. tariffs monitor](https://github.com/FelipeRamon123/us-brazil-tariff-monitor) joins monthly Census imports for consumption to Yale's HTSUS10 × country panel. It demonstrates temporal alignment, import-basket exposure by additional-rate band and the products driving each monthly change.
 
 ## Language and naming
 
