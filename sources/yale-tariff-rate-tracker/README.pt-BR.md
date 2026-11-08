@@ -53,4 +53,6 @@ Uma medida vigente desde 18 de agosto não deve ser aplicada retroativamente aos
 
 ## Showcase relacionado
 
+[![Monitor Brasil × tarifas dos EUA](../../docs/assets/us-brazil-tariff-monitor.png)](https://feliperamon123.github.io/us-brazil-tariff-monitor/)
+
 O dashboard [Brasil × tarifas dos EUA](https://github.com/FelipeRamon123/us-brazil-tariff-monitor) aplica este módulo às importações mensais provenientes do Brasil.
