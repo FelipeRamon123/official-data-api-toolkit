@@ -19,6 +19,7 @@ Reusable access module for The Budget Lab at Yale's [Tariff Rate Tracker](https:
 |---|---|---|
 | 01 | [Download latest release](python/01_download_latest_release.py) | Resolves and downloads the official ZIP; writes a JSON manifest |
 | 02 | [Extract one country panel](python/02_extract_country_rates.py) | Filters `actual/snapshots` by Census country code and writes CSV.GZ |
+| 03 | [Build monthly tariff exposure](python/03_build_monthly_tariff_exposure.py) | Joins Census example 07 to Yale rates weighted by days in force |
 | 01-M | [Release metadata in Power Query](power-query/01_latest_release_metadata.m) | Returns the official tag, date and asset URL |
 
 ## Quick start

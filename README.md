@@ -16,6 +16,7 @@ Run the U.S. Census Python quickstart directly in Google Colab—no cloning or G
 |---|---|---|
 | [U.S. Census International Trade API](sources/us-census/README.md) | U.S. imports and exports by product, partner country, port, classification and customs treatment | Available |
 | [Yale Tariff Rate Tracker](sources/yale-tariff-rate-tracker/README.md) | U.S. statutory tariff rates by HTSUS10, origin country, authority and validity interval | Available |
+| [Brazilian Federal Revenue — NCM](sources/receita-ncm/README.md) | Official Portuguese HS2/HS4/HS6 descriptions from Sistema Classif | Available |
 
 ## Featured showcase
 
@@ -29,7 +30,7 @@ An interactive bilingual application built from the U.S. Census International Tr
 
 ## U.S. Census examples
 
-The first module currently includes six query patterns:
+The first module currently includes seven query patterns:
 
 | # | Query | Best for |
 |---|---|---|
@@ -39,6 +40,7 @@ The first module currently includes six query patterns:
 | 04 | One country by SITC section | Broad sector view |
 | 05 | One country by HTSUS10 and Rate Provision | Observed customs-treatment analysis |
 | 06 | U.S. exports to one country by Schedule B10 | Destination-market analysis and domestic-versus-re-export split |
+| 07 | Monthly imports from one country by HTSUS10 | Time series with values, quantities, dutiable value and calculated duties |
 
 Go to the [U.S. Census module](sources/us-census/README.md) for setup instructions, API notes and examples.
 

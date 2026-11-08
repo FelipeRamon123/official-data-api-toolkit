@@ -16,6 +16,7 @@ Execute o início rápido em Python diretamente no Google Colab, sem clonar manu
 |---|---|---|
 | [U.S. Census International Trade API](sources/us-census/README.pt-BR.md) | Importações e exportações dos EUA por produto, país parceiro, porto, classificação e tratamento aduaneiro | Disponível |
 | [Yale Tariff Rate Tracker](sources/yale-tariff-rate-tracker/README.pt-BR.md) | Tarifas estatutárias dos EUA por HTSUS10, país de origem, autoridade e intervalo de vigência | Disponível |
+| [Receita Federal — NCM](sources/receita-ncm/README.pt-BR.md) | Descrições oficiais em português nos níveis SH2/SH4/SH6 do Sistema Classif | Disponível |
 
 ## Showcase em destaque
 
@@ -29,7 +30,7 @@ Uma aplicação interativa e bilíngue construída com a U.S. Census Internation
 
 ## Exemplos do U.S. Census
 
-O primeiro módulo já traz seis padrões de consulta:
+O primeiro módulo já traz sete padrões de consulta:
 
 | # | Consulta | Serve para |
 |---|---|---|
@@ -39,6 +40,7 @@ O primeiro módulo já traz seis padrões de consulta:
 | 04 | Um país por seção SITC | Visão setorial ampla |
 | 05 | Um país por HTSUS10 e Rate Provision | Análise do tratamento aduaneiro observado |
 | 06 | Exportações dos EUA para um país por Schedule B10 | Análise de mercado de destino e separação entre exportações domésticas e reexportações |
+| 07 | Importações mensais de um país por HTSUS10 | Série mensal com valores, quantidades, valor dutiável e direitos calculados |
 
 Veja o [módulo do U.S. Census](sources/us-census/README.pt-BR.md) para instruções, conceitos da API e exemplos.
 

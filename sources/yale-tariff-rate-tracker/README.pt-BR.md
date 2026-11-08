@@ -19,6 +19,7 @@ Módulo reutilizável para acessar os releases do [Tariff Rate Tracker](https://
 |---|---|---|
 | 01 | [Baixar o release mais recente](python/01_download_latest_release.py) | Resolve e baixa o ZIP oficial; grava um manifesto JSON |
 | 02 | [Extrair o painel de um país](python/02_extract_country_rates.py) | Filtra `actual/snapshots` por código Census do país e gera CSV.GZ |
+| 03 | [Construir a exposição tarifária mensal](python/03_build_monthly_tariff_exposure.py) | Cruza o exemplo Census 07 com taxas Yale ponderadas pelos dias de vigência |
 | 01-M | [Metadados do release em Power Query](power-query/01_latest_release_metadata.m) | Retorna tag, data e URL do ativo oficial |
 
 ## Uso rápido
@@ -27,6 +28,7 @@ Módulo reutilizável para acessar os releases do [Tariff Rate Tracker](https://
 python -m pip install -r requirements.txt
 python sources/yale-tariff-rate-tracker/python/01_download_latest_release.py
 python sources/yale-tariff-rate-tracker/python/02_extract_country_rates.py --country 3510
+python sources/yale-tariff-rate-tracker/python/03_build_monthly_tariff_exposure.py --census data/monthly_imports_country_htsus10.csv.gz --yale data/yale-tariff-rate-tracker/country_3510_rates.csv.gz
 ```
 
 O código `3510` representa o Brasil na classificação de países do Census usada pelo tracker.
