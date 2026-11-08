@@ -44,4 +44,6 @@ Census trade data are monthly; Yale rates are interval-based. For each `month ×
 
 ## Related showcase
 
+[![Brazil × U.S. tariffs monitor](../../docs/assets/us-brazil-tariff-monitor.png)](https://feliperamon123.github.io/us-brazil-tariff-monitor/)
+
 The [Brazil × U.S. tariffs dashboard](https://github.com/FelipeRamon123/us-brazil-tariff-monitor) applies this module to monthly imports from Brazil.
