@@ -19,7 +19,7 @@ Módulo reutilizável para acessar os releases do [Tariff Rate Tracker](https://
 |---|---|---|
 | 01 | [Baixar o release mais recente](python/01_download_latest_release.py) | Resolve e baixa o ZIP oficial; grava um manifesto JSON |
 | 02 | [Extrair o painel de um país](python/02_extract_country_rates.py) | Filtra `actual/snapshots` por código Census do país e gera CSV.GZ |
-| 03 | [Construir a exposição tarifária mensal](python/03_build_monthly_tariff_exposure.py) | Cruza o exemplo Census 07 com taxas Yale ponderadas pelos dias de vigência |
+| 03 | [Construir a classificação mensal de sobretarifas](python/03_build_monthly_tariff_exposure.py) | Cruza o exemplo Census 07 com o Yale, remove probabilidades de utilização e leva incidências por conteúdo à maior faixa potencial |
 | 01-M | [Metadados do release em Power Query](power-query/01_latest_release_metadata.m) | Retorna tag, data e URL do ativo oficial |
 
 ## Uso rápido
@@ -37,17 +37,23 @@ O código `3510` representa o Brasil na classificação de países do Census usa
 
 O Census é mensal, enquanto o Yale registra intervalos diários. Para cada `mês × HTSUS10`:
 
-1. selecione os intervalos que intersectam o mês;
-2. conte os dias de interseção;
-3. calcule a média de `total_additional` ponderada pelos dias;
-4. associe a taxa ao valor mensal de importações para consumo (`CON_VAL_MO`);
-5. calcule médias da pauta ponderadas pelo valor importado.
+1. fixe o dia 15 como data de referência mensal;
+2. selecione o intervalo vigente nessa data para cada HTSUS10;
+3. preserve `total_additional` como `yale_modeled_rate_reference`, somente para auditoria;
+4. medidas iniciadas até o dia 15 entram no próprio mês; medidas posteriores entram no mês seguinte;
+5. classifique aeronaves civis diretamente identificáveis em 0%, sob condição de cumprimento da General Note 6;
+6. para outras exceções dependentes de uso, adote a alíquota cheia por padrão e registre a ressalva de elegibilidade;
+7. classifique incidências dependentes de conteúdo pela maior alíquota estatutária potencial e marque `tariff_rate_qualifier=up_to`;
+8. associe o tratamento ao valor mensal de importações para consumo (`CON_VAL_MO`).
 
-Uma medida vigente desde 18 de agosto não deve ser aplicada retroativamente aos primeiros 17 dias. O resultado é uma **exposição estatutária mensal modelada**, e não os direitos efetivamente arrecadados.
+Uma medida iniciada em 18 de agosto entra na classificação principal de setembro. O resultado é uma classificação analítica, não os direitos efetivamente arrecadados nem uma decisão aduaneira vinculante. O conceito não inclui tarifa-base, antidumping, direitos compensatórios ou medidas fora do tracker.
+
+Referências normativas para a exceção de aeronaves civis: [Seção 301 Brasil](https://public-inspection.federalregister.gov/2026-14542.pdf), [Seção 301 trabalho forçado](https://public-inspection.federalregister.gov/2026-15274.pdf) e [HTSUS — General Note 6](https://hts.usitc.gov/).
 
 ## Limites
 
-- As taxas são modeladas pelo Yale, não dados de arrecadação aduaneira.
+- O Yale modela parcelas de utilização e conteúdo em alguns programas. Probabilidades de utilização ficam fora da métrica principal; linhas dependentes de conteúdo usam um máximo potencial claramente qualificado, enquanto a estimativa Yale permanece nos campos auxiliares `yale_modeled_*`.
+- A elegibilidade para exceções depende da documentação da entrada; o HTSUS10 isolado não substitui a análise do CBP.
 - Releases podem conter intervalos futuros já incorporados ao cronograma do tracker; registre sempre tag e data de publicação.
 - O ZIP é grande. A extração em Python/Parquet é a rota recomendada; o Power Query fica restrito à descoberta do release e ao consumo de extratos processados.
 
