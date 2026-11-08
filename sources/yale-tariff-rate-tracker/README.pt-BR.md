@@ -19,7 +19,7 @@ Módulo reutilizável para acessar os releases do [Tariff Rate Tracker](https://
 |---|---|---|
 | 01 | [Baixar o release mais recente](python/01_download_latest_release.py) | Resolve e baixa o ZIP oficial; grava um manifesto JSON |
 | 02 | [Extrair o painel de um país](python/02_extract_country_rates.py) | Filtra `actual/snapshots` por código Census do país e gera CSV.GZ |
-| 03 | [Construir a exposição tarifária mensal](python/03_build_monthly_tariff_exposure.py) | Cruza o exemplo Census 07 com taxas Yale ponderadas pelos dias de vigência |
+| 03 | [Construir a exposição mensal a sobretarifas](python/03_build_monthly_tariff_exposure.py) | Cruza o exemplo Census 07 com a taxa Yale vigente no dia 15 e preserva uma média auxiliar por dias |
 | 01-M | [Metadados do release em Power Query](power-query/01_latest_release_metadata.m) | Retorna tag, data e URL do ativo oficial |
 
 ## Uso rápido
@@ -37,13 +37,14 @@ O código `3510` representa o Brasil na classificação de países do Census usa
 
 O Census é mensal, enquanto o Yale registra intervalos diários. Para cada `mês × HTSUS10`:
 
-1. selecione os intervalos que intersectam o mês;
-2. conte os dias de interseção;
-3. calcule a média de `total_additional` ponderada pelos dias;
-4. associe a taxa ao valor mensal de importações para consumo (`CON_VAL_MO`);
-5. calcule médias da pauta ponderadas pelo valor importado.
+1. fixe o dia 15 como data de referência mensal;
+2. selecione o intervalo vigente nessa data para cada HTSUS10;
+3. use `total_additional` como `additional_rate_effective`, a métrica principal;
+4. medidas iniciadas até o dia 15 entram no próprio mês; medidas posteriores entram no mês seguinte;
+5. preserve `additional_rate_day_weighted` apenas como média auxiliar pelos dias de vigência;
+6. associe a taxa ao valor mensal de importações para consumo (`CON_VAL_MO`).
 
-Uma medida vigente desde 18 de agosto não deve ser aplicada retroativamente aos primeiros 17 dias. O resultado é uma **exposição estatutária mensal modelada**, e não os direitos efetivamente arrecadados.
+Uma medida iniciada em 18 de agosto entra na classificação principal de setembro. O resultado é uma **exposição mensal modelada a sobretarifas**, e não os direitos efetivamente arrecadados. O conceito não inclui tarifa-base, antidumping, direitos compensatórios ou medidas fora do tracker.
 
 ## Limites
 

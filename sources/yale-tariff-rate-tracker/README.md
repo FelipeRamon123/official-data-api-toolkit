@@ -19,7 +19,7 @@ Reusable access module for The Budget Lab at Yale's [Tariff Rate Tracker](https:
 |---|---|---|
 | 01 | [Download latest release](python/01_download_latest_release.py) | Resolves and downloads the official ZIP; writes a JSON manifest |
 | 02 | [Extract one country panel](python/02_extract_country_rates.py) | Filters `actual/snapshots` by Census country code and writes CSV.GZ |
-| 03 | [Build monthly tariff exposure](python/03_build_monthly_tariff_exposure.py) | Joins Census example 07 to Yale rates weighted by days in force |
+| 03 | [Build monthly surcharge exposure](python/03_build_monthly_tariff_exposure.py) | Joins Census example 07 to the Yale rate in force on day 15; retains a day-weighted auxiliary field |
 | 01-M | [Release metadata in Power Query](power-query/01_latest_release_metadata.m) | Returns the official tag, date and asset URL |
 
 ## Quick start
@@ -34,7 +34,7 @@ Country code `3510` identifies Brazil in the Census country classification used 
 
 ## Joining to Census data
 
-Census trade data are monthly; Yale rates are interval-based. For each `month × HTSUS10`, intersect the validity intervals with the month, weight `total_additional` by the number of active calendar days, then weight product rates by monthly imports for consumption (`CON_VAL_MO`). This is modeled monthly statutory exposure, not collected duties.
+Census trade data are monthly; Yale rates are interval-based. For each `month × HTSUS10`, the primary field is `total_additional` in force on day 15. Measures beginning through day 15 enter that month; later measures enter the following month. `additional_rate_day_weighted` is retained only as an auxiliary field and does not determine the dashboard bands. This is modeled statutory surcharge exposure, not collected duties, and excludes base tariffs, antidumping, countervailing duties and measures outside the tracker.
 
 ## Limitations
 
