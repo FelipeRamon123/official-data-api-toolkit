@@ -54,6 +54,8 @@ Repository: `united-states-census-imports-api-showcase`
 
 The [Brazil × U.S. tariffs monitor](https://github.com/FelipeRamon123/us-brazil-tariff-monitor) joins monthly Census imports for consumption to Yale's HTSUS10 × country panel. It demonstrates temporal alignment, import-basket exposure by additional-rate band and the products driving each monthly change.
 
+**[Open the live dashboard →](https://feliperamon123.github.io/us-brazil-tariff-monitor/)** · [Showcase repository](https://github.com/FelipeRamon123/us-brazil-tariff-monitor)
+
 ## Language and naming
 
 To keep the repository useful for both international and Brazilian audiences:

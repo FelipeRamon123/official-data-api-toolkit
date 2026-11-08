@@ -54,6 +54,8 @@ Repositório: `united-states-census-imports-api-showcase`
 
 O [monitor Brasil × tarifas dos EUA](https://github.com/FelipeRamon123/us-brazil-tariff-monitor) cruza as importações mensais para consumo do Census com o painel HTSUS10 × país do Yale. Ele demonstra a regra de alinhamento temporal, a exposição da pauta por faixas de tarifa adicional e os produtos que explicam as variações mensais.
 
+**[Abrir o dashboard →](https://feliperamon123.github.io/us-brazil-tariff-monitor/)** · [Repositório da showcase](https://github.com/FelipeRamon123/us-brazil-tariff-monitor)
+
 ## Idioma e nomenclatura
 
 Para manter o material útil para público brasileiro e internacional:
