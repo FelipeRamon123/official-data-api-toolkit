@@ -28,6 +28,7 @@ A **U.S. Census Imports API Showcase** transforma o dataset gerado pelo exemplo 
 | 04 | [Um país por seção SITC](power-query/04_country_by_sitc_section.m) | Ano × País × seção SITC | Visão setorial ampla |
 | 05 | [Um país por HTSUS10 e Rate Provision](power-query/05_country_by_htsus10_and_rate_provision.m) | Ano × País × HTSUS10 × RP | Tratamento aduaneiro observado |
 | 06 | [Exportações para um país por Schedule B10](power-query/06_exports_to_country_by_schedule_b10.m) | Ano × País de destino × Schedule B10 × tipo de exportação | Mercado de destino e separação entre exportações domésticas e reexportações |
+| 07 | [Importações mensais de um país por HTSUS10](power-query/07_monthly_imports_by_country_htsus10.m) | Mês × País × HTSUS10 | Valores, quantidades, valor dutiável e direitos calculados |
 
 Cada exemplo também tem uma versão em Python na pasta [`python/`](python/).
 
@@ -104,7 +105,7 @@ python sources/us-census/python/06_exports_to_country_by_schedule_b10.py \
 
 ## Dá para consultar outras coisas?
 
-Sim. Os seis scripts mostram padrões de consulta, não tudo o que existe na API.
+Sim. Os sete scripts mostram padrões de consulta, não tudo o que existe na API.
 
 Também é possível trabalhar com dimensões como:
 
